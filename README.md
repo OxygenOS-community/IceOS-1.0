@@ -27,3 +27,4 @@ IceOS is a operating system in its alpha stages Designed to be mobile and have a
 # In Progress
 - Support for FrameBuffer via HDMI
 - Support for DMA via HDMI
+- More basic LIBC functions
