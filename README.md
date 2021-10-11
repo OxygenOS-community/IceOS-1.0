@@ -14,17 +14,23 @@ IceOS is a operating system in its alpha stages Designed to be mobile and have a
 - You may not see anything on the screen, this is because IceOS only sends data to UART, not video output
 
 # Features
+- Support for FrameBuffer via HDMI
 - Support for SPI connections via GPIO
 - Support for I2C connections via GPIO
 - Support for LED connections via GPIO
 - Support for LCD connections via GPIO
 - Support for Video Core Mailbox API
-- Support for Memory Managment
+- Support for MMIO
+- Memory Managment functions
 - Timer functions
 - Utilitys
 - IRQ functions
 
 # In Progress
-- Support for FrameBuffer via HDMI
 - Support for DMA via HDMI
 - More basic LIBC functions
+- Support for Bluetooth
+- Support for audio
+- Support for Multiprocessing
+- Support for USB
+- Support for Wordup graphics toolkit
