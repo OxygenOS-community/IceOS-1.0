@@ -1,4 +1,5 @@
 #include "stdlib.h"
+#include "stdio.h"
 
 __attribute__((noreturn))
 void abort(void) {

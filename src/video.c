@@ -67,7 +67,7 @@ void video_set_resolution(u32 xres, u32 yres, u32 bpp) {
     fb_req.pitch.pitch = 0;
 
     //sets the actual resolution
-    mailbox_process((mailbox_tag *)&fb_req, sizeof(fb_req));
+    mb_process((mailbox_tag *)&fb_req, sizeof(fb_req));
 
     printf("Allocated Buffer: %X - %d\n", fb_req.buff.base, fb_req.buff.screen_size);
 

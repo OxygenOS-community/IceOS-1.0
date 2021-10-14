@@ -1,6 +1,7 @@
 #pragma once
 #include "kernel/perip/base.h"
 #include "kernel/common.h"
+#include <kernel/features/ssp.h>
 
 enum vc_irqs {
   SYS_TIMER_IRQ_1 = 1,

@@ -1,6 +1,7 @@
 #pragma once
 #include "kernel/perip/base.h"
 #include "kernel/common.h"
+#include <kernel/features/ssp.h>
 
 struct I2CRegs {
 	reg32 control;

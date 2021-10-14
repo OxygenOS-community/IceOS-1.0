@@ -1,4 +1,4 @@
-#include "kernel/mm.h"
+#include "kernel/features/mm.h"
 #include "kernel/sysregs.h"
 
 .section ".text.boot"
@@ -33,6 +33,10 @@ el1_entry:
     adr x1, bss_end
     sub x1, x1, x0
     bl memzero
+
+	bl init
+
+	bl memzero
 
     mov sp, #LOW_MEMORY
     bl kernel_main

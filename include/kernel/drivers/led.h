@@ -1,6 +1,7 @@
 #pragma once
 
 #include <kernel/common.h>
+#include <kernel/features/ssp.h>
 
 void led_init();
 

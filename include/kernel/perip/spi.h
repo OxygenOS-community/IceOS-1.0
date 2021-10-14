@@ -1,6 +1,7 @@
 #pragma once
 
 #include "kernel/common.h"
+#include <kernel/features/ssp.h>
 
 struct SpiRegs {
 	reg32 cs;

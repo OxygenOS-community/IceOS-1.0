@@ -1,5 +1,6 @@
 #pragma once
 
+#include <kernel/features/ssp.h>
 #include "common.h"
 
 typedef struct {

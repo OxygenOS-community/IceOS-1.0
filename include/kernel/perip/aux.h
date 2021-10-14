@@ -2,6 +2,8 @@
 #include "kernel/common.h"
 #include "kernel/perip/base.h"
 
+#include <kernel/features/ssp.h>
+
 struct AuxRegs
 {
     reg32 irq_status;

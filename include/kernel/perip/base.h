@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include <kernel/features/ssp.h>
 
 #if RPI_VERSION == 3
 #define PBASE 0x3F00000

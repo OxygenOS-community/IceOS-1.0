@@ -1,5 +1,6 @@
 #pragma once
 #include <kernel/common.h>
+#include <kernel/features/ssp.h>
 
 typedef enum _i2c_status {
 	I2CS_SUCCESS,

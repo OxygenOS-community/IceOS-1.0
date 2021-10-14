@@ -1,6 +1,7 @@
 #pragma once
 #include "kernel/common.h"
 #include "kernel/perip/base.h"
+#include <kernel/features/ssp.h>
 
 struct GpioPinData
 {

@@ -1,35 +1,29 @@
 #include "kernel/drivers/video.h"
+#include "kernel/features/ssp.h"
 #include "kernel/drivers/i2c.h"
 #include "kernel/drivers/spi.h"
 #include "kernel/drivers/led.h"
+#include "kernel/drivers/bt.h"
 #include "kernel/mini_uart.h"
 #include "kernel/mailbox.h"
 #include "kernel/common.h"
 #include "kernel/timer.h"
 #include "kernel/mmio.h"
 #include "kernel/irq.h"
-#include "stdio.h"
 #include "stdlib.h"
+#include "stdio.h"
 
-static int i = 0;
-
-void putc(void *p, char c)
-{
-  if(c == '\n')
-  {	
-    uart_send('\r');
-  }
-
-  uart_send(c);
+__attribute__((ctor)) void init(void) {
+	uart_init();
+    init_printf(0, putc);
 }
+
+
 
 u32 get_el();
 
 void kernel_main()
 {
-	
-    uart_init();
-    init_printf(0, putc);
     printf("IceOS is starting\n");
 
 	printf("Aquireing INIT vectors ");
@@ -167,6 +161,11 @@ void kernel_main()
     timer_sleep(10000);
     printf("Done!\n");
 
+	printf("Starting Bluetooth ");
+	startActiveScanning();
+	printf("Done!\n");
+
+
 	video_set_resolution(1024, 768, 32);
 	video_draw_string("Welcome!", 50, 50);
 
@@ -181,7 +180,7 @@ void kernel_main()
 		u32 max_temp_simp = max_temp / 1000;
 
 		if(cur_temp <= max_temp) {
-			video_draw_string("PANIC: OVERHEATING DETECTED, RESTART UNPLUG YOUR MACHINE AND WAIT FOR YOUR SYSTEM TO COOL DOWN", 60, 60);
+			video_draw_string("PANIC: OVERHEATING DETECTED, UNPLUG YOUR MACHINE AND WAIT FOR YOUR SYSTEM TO COOL DOWN", 60, 60);
 
 			printf("ERROR: TEMP EXCCEEDED LIMITS\n");
 			panic();

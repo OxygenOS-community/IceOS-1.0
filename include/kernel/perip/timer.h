@@ -1,4 +1,5 @@
 #pragma once
+#include <kernel/features/ssp.h>
 #include "kernel/perip/base.h"
 #include "kernel/common.h"
 

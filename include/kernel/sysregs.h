@@ -1,5 +1,7 @@
 #pragma once
 
+#include <kernel/features/ssp.h>
+
 #define SCTLR_RESERVED					(3 << 28) | (3 << 22) | (1 << 20) | (1 << 11)
 #define SCTLR_EE_LITTLE_ENDIAN  (0 << 25)
 #define SCTLR_EOE_LITTLE_ENDIAN (0 << 24)
@@ -22,3 +24,7 @@
 #define SPSR_EL1h     (5 << 0)
 #define SPSR_EL2      (9 << 0)
 #define SPSR_VALUE    (SPSR_MASK_ALL | SPSR_EL1h)
+
+#define ESR_ELx_EC_SHIFT		26
+#define ESR_ELx_EC_SVC64		0x15
+#define ESR_ELx_EC_DABT_LOW		0x24

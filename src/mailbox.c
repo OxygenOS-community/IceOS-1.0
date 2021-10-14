@@ -26,6 +26,10 @@ static u32 property_data[8192] __attribute__((aligned(16)));
 #define MAIL_EMPTY 		0x40000000
 #define MAIL_FULL		0x80000000
 
+#define MBOX_TAG_GET_ARM_MEMORY     0x00010005
+#define MBOX_TAG_END                0x0
+#define MBOX_TAG_REQUEST            0x0
+
 #define MAIL_POWER		0x0
 #define MAIL_FB			0x1
 #define MAIL_VUART		0x2
@@ -41,6 +45,8 @@ static void mb_write(u8 channel, u32 data) {
 
 	MBX()->write = (data & 0xFFFFFFF0 | (channel & 0xF));
 }
+
+
 
 static u32 mb_read(u8 channel) {
 	while(true) {

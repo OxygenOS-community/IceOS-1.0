@@ -1,6 +1,8 @@
 #pragma once
 #include "common.h"
 
+#include <kernel/features/ssp.h>
+
 void timer_init();
 void handle_timer_1();
 void handle_timer_3();
