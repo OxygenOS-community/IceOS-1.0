@@ -23,6 +23,8 @@ IceOS is a operating system in its alpha stages Designed to be mobile and have a
 - Support for Video Core Mailbox API
 - Support for FrameBuffer via HDMI
 - Memory Managment functions
+- Support for DMA via HDMI
+- Support for SD cards
 - Support for Bluetooth
 - Support for MMIO
 - Timer functions
@@ -30,8 +32,6 @@ IceOS is a operating system in its alpha stages Designed to be mobile and have a
 - Basic Utilitys
 
 # In Progress
-- Support for SD cards
-- Support for DMA via HDMI
 - More basic LIBC functions
 - Support for audio
 - Support for Multiprocessing

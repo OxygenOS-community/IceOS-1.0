@@ -1,8 +1,10 @@
 #include "kernel/drivers/video.h"
 #include "kernel/features/ssp.h"
+#include "kernel/features/dma.h"
 #include "kernel/drivers/i2c.h"
 #include "kernel/drivers/spi.h"
 #include "kernel/drivers/led.h"
+#include "kernel/features/sd.h"
 #include "kernel/drivers/bt.h"
 #include "kernel/mini_uart.h"
 #include "kernel/mailbox.h"
@@ -165,9 +167,24 @@ void kernel_main()
 	startActiveScanning();
 	printf("Done!\n");
 
+	video_init();
+
+	printf("NO DMA...\n");
+    video_set_dma(false);
 
 	video_set_resolution(1024, 768, 32);
 	video_draw_string("Welcome!", 50, 50);
+
+	video_draw_string("Switching to DMA", 50, 60);
+
+	video_set_dma(true);
+
+	video_set_resolution(1024, 768, 32);
+	video_draw_string("Switch completed", 50, 70);
+	video_draw_string("Starting SD Card drivers", 50, 80);
+
+	printf("starting SD card drivers\n");
+	sd_init();
 
     while(1)
     {

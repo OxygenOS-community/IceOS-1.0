@@ -125,3 +125,17 @@ bool mb_power_check(u32 type) {
 
 	return p.state && p.state != ~0;
 }
+
+int
+mbox_get_arm_memory()
+{
+    __attribute__((aligned(16)))
+    uint32_t buf[] = {36, 0, MBOX_TAG_GET_ARM_MEMORY, 8, 0, 0, 0, MBOX_TAG_END};
+    asserts((V2P(buf) & 0xF) == 0, "Buffer should align to 16 bytes. ");
+
+    mb_write(8, (V2P(buf)));
+    mb_read(8);
+    // debug_mem(buf, buf[0]);
+    asserts(buf[5] == 0, "Memory base address should be zero. ");
+    return buf[6];
+}
